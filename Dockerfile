@@ -10,6 +10,8 @@ WORKDIR /externals
 
 RUN git remote add upstream http://github.com/irods/externals
 
-RUN git checkout 4-2-stable
+#RUN git checkout 4-2-stable
+
+RUN git fetch ; git checkout cpr_elasticlient_4_2_stable
 
 RUN python install_prerequisites.py
