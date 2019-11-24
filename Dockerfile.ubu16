@@ -1,0 +1,19 @@
+FROM ubuntu:16.04
+
+RUN apt update
+
+RUN apt install -y git python vim sudo wget curl make
+
+RUN apt install apt-transport-https  # (Ubuntu only)
+
+RUN git clone http://github.com/d-w-moore/externals
+
+WORKDIR /externals
+
+RUN git remote add upstream http://github.com/irods/externals
+
+#RUN git checkout 4-2-stable
+
+RUN git fetch ; git checkout cpr_elasticlient_4_2_stable
+
+RUN python install_prerequisites.py
